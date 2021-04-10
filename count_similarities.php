@@ -49,7 +49,7 @@ for($i=0;$i<$steps;$i++){
 }
 
 for($i=0;$i<$steps;$i++){
-	var_dump(sumOfSimilarities($cases[$i])) . "\n";
+	echo sumOfSimilarities($cases[$i]) . "\n";
 }
 
 
