@@ -1,0 +1,58 @@
+server:
+  port: 4522
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      default-filters:
+        - name: RequestFilterFactory
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            default-filters:
+              - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
+
+      routes:
+        - id: user-service
+          uri: lb://booking-service
+          predicates:
+            - Path=/api/v1/user/**
+          filters:
+            - RewritePath=/api/v1(?<segment>/?.*), $\{segment}
+        - id: booking-service
+          uri: lb://booking-service
+          predicates:
+            - Path=/api/v1/appointment/**
+          filters:
+            - RewritePath=/api/v1(?<segment>/?.*), $\{segment}
+        - id: cleaner-service
+          uri: lb://cleaner-service
+          predicates:
+            - Path=/api/v1/cleaner/**
+          filters:
+            - RewritePath=/api/v1(?<segment>/?.*), $\{segment}
+        - id: company-service
+          uri: lb://cleaner-service
+          predicates:
+            - Path=/api/v1/company/**
+          filters:
+            - RewritePath=/api/v1(?<segment>/?.*), $\{segment}
+
+
+      metrics:
+        enabled: true
+management:
+  endpoints.web.exposure.include: '*'
+  enpoint:
+    health:
+      show-details: always
