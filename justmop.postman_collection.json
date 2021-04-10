@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "e8665e69-619b-437c-92ed-174c6149b9bb",
+		"name": "justmop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create company",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Company 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4522/api/v1/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4522",
+					"path": [
+						"api",
+						"v1",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create cleaner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\" : \"Cleaner 2\",\n    \"company\": {\n        \"id\": 1\n    }\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4522/api/v1/cleaner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4522",
+					"path": [
+						"api",
+						"v1",
+						"cleaner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create appointment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cleanerId\": 3,\n    \"startTime\": \"15/04/2021 19:00\",\n    \"endTime\": \"15/04/2021 21:00\",\n    \"user\": {\n        \"id\":1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4522/api/v1/appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4522",
+					"path": [
+						"api",
+						"v1",
+						"appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get appointments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4522/api/v1/appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4522",
+					"path": [
+						"api",
+						"v1",
+						"appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCleanersWithAvailability",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dayOfMonth\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4522/api/v1/appointment/cleaners/2022/1/19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4522",
+					"path": [
+						"api",
+						"v1",
+						"appointment",
+						"cleaners",
+						"2022",
+						"1",
+						"19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAppointment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": \"f816d577-cc20-4e3e-a0b5-2d7bfc78496b\",\n        \"cleanerId\": 4,\n        \"startTime\": \"19/01/2020 09:00\",\n        \"endTime\": \"19/01/2020 13:00\",\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"kasd\"\n        },\n        \"status\": null\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4522/api/v1/appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4522",
+					"path": [
+						"api",
+						"v1",
+						"appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"name\": \"Test User\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4522/api/v1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4522",
+					"path": [
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4522/api/v1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4522",
+					"path": [
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserAppointments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4522/api/v1/user/1/appointments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4522",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"1",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get cleaners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4522/api/v1/cleaner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4522",
+					"path": [
+						"api",
+						"v1",
+						"cleaner"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
