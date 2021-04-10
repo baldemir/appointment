@@ -5,7 +5,7 @@ Make sure to set database credentials on
 * booking-service/src/main/resources/application.properties
 * cleaner-service/src/main/resources/application.properties
 
-Create two database schemas accordingly.(default schema names: booking, cleaner )
+Create two database schemas accordingly.(default schema names: booking, service )
 
 Clone the repo to desired path and then run the following commands
 
