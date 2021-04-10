@@ -1,6 +1,5 @@
 package com.beraat.booking.bookingservice.entity;
 
-import com.beraat.booking.bookingservice.enums.AvailabilityStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import org.hibernate.annotations.GenericGenerator;
@@ -32,7 +31,6 @@ public class Appointment implements Comparable<Appointment> {
     @ManyToOne(optional = false)
     User user;
 
-    AvailabilityStatus status;
 
     public String getId() {
         return id;
@@ -72,14 +70,6 @@ public class Appointment implements Comparable<Appointment> {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public AvailabilityStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(AvailabilityStatus status) {
-        this.status = status;
     }
 
     @Override
