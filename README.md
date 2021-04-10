@@ -55,3 +55,14 @@ then give the input in following format
 aaa
 ddaaddaa
 ```
+
+# Next Steps
+Implement user authentication
+
+Implement caching
+
+Add logging
+
+Agree on appointment time slots to make algorithms more efficient
+
+Add reports
