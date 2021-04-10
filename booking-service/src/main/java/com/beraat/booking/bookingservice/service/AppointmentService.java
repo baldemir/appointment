@@ -72,7 +72,10 @@ public class AppointmentService {
 
     @Transactional
     public Appointment createAppointment(Appointment appointment) {
-        //check if a cleaner exist with the given id
+        if (appointment.getStartTime().isBefore(LocalDateTime.now())) {
+            throw new IllegalArgumentException("You cannot create appointment for past dates.");
+        }
+        //save appointment only if it is valid
         if (isValidAppointment(appointment)) {
             return this.appointmentRepository.save(appointment);
         } else {
